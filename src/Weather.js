@@ -200,7 +200,7 @@ export default function Weather() {
       <img alt="conditions" src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} />
       <p>Conditions: {weather.weather[0].description}</p>
       <p>Current temperature: {weather.main.temp} Fahrenheit</p>
-      <p>Wind speed {weather.wind.speed} MPH</p>
+      <p>Wind speed: {weather.wind.speed} MPH</p>
       {/* <pre>{JSON.stringify(weather, null, 2)}</pre> */}
     </div>
     );
