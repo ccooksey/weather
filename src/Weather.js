@@ -37,7 +37,9 @@ export default function Weather() {
 
   const secondsInAMonth = 259200000;
   const coordinatesKnown = longitude != null || latitude != null;
-  const locationKnown = cookies.city != null && cookies.state != null;
+  const locationKnown =
+    cookies.city != null && cookies.state != null &&
+    cookies.city !== '' && cookies.state !== '';
 
   // This is similar to a constructor in React. It will be called
   // when the component mounts. It will only be called once normally,
