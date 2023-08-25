@@ -103,10 +103,13 @@ export default function Weather() {
         setLocationAPIError('Locations outside the US are not yet supported.');
         return;
       }
-      const abbr = states.abbr(location[0].state); // Returns "No abbreviation found..." if state is unknown
-      if (abbr.startsWith('No abbreviation found')) {
-        setLocationAPIError('Could not find the abbreviation for your state: ' + location[0].state);
-        return;
+      let abbr = location[0].state;
+      if (abbr.length > 2) {
+        abbr = states.abbr(location[0].state); // Returns "No abbreviation found..." if state is unknown
+        if (abbr.startsWith('No abbreviation found')) {
+          setLocationAPIError('Could not find the abbreviation for your state: ' + location[0].state);
+          return;
+        }
       }
 
       // Requirement: remember the last city and state selected
