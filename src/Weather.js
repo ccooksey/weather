@@ -21,8 +21,11 @@ import React, { useEffect, useState }  from 'react';
 import axios from 'axios';
 import { useCookies } from 'react-cookie';
 import SelectUSState from 'react-select-us-states';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHome } from '@fortawesome/free-solid-svg-icons'
 import states from 'us-state-converter';
 import secrets from './secrets.json';
+
 
 export default function Weather() {
 
@@ -227,11 +230,9 @@ export default function Weather() {
       onChange={(e) => handleChangeState(e)} />
     &nbsp;
     &nbsp;
+    <button disabled={!coordinatesKnown} onClick={getMyLocation}><FontAwesomeIcon icon={faHome}/></button>
     <p>
-      <button disabled={!coordinatesKnown} onClick={getMyLocation}>Use Current Location</button>
-    </p>
-    <p>
-      <button disabled={!locationKnown} onClick={getWeather}>Weather Report</button>
+      <button disabled={!locationKnown} onClick={getWeather}>Update Report</button>
     </p>
     {weather && renderWeather()}
     <br />
